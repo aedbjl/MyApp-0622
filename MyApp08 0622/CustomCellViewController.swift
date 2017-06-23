@@ -12,14 +12,27 @@ class CustomCellViewController: UIViewController , UITableViewDataSource , UITab
 
     @IBOutlet weak var tableView: UITableView!
     
+    private let myData = ["猜數字v1","猜數字v2","切換場景","自訂UIView",
+                          "簽名板","自訂","k","l","p","r","q",
+                          "i","j","k","l","p","r","q"
+                          ]
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 1
+        return myData.count
     }
     
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell")
+            as! CustomTableViewCell //父類別轉成子類別
+        cell.img.image = UIImage(named: "1066.jpg")
+        cell.label1.text = myData[indexPath.row]
+        cell.content.text = "1234567"
         
+        cell.img.layer.cornerRadius = 40
+        cell.img.clipsToBounds = true
+        return cell
     }
     override func viewDidLoad() {
         super.viewDidLoad()

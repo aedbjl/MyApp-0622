@@ -44,6 +44,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     private func gotoVC(whereVC:Int){
         switch (whereVC){
+        case 2 :
+            if let vc2 = storyboard?.instantiateViewController(withIdentifier: "vc2"){
+                show(vc2, sender : self)
+            }
+            break
+        case 4 :
+            if let vcpaint = storyboard?.instantiateViewController(withIdentifier: "VCpaint"){
+                show(vcpaint, sender : self)
+            }
+            break
         case 5 :
             if let vc = storyboard?.instantiateViewController(withIdentifier: "customcellvc"){
             show(vc, sender : self)
