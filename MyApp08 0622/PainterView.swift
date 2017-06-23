@@ -12,28 +12,42 @@ class PainterView: UIView {
 
     private var viewW:CGFloat = 0
     private var viewH:CGFloat = 0
-    private var lines:Array<Array<(CGFloat,CGFloat)>> = []
+    private var lines:Array<Array<(CGFloat,CGFloat)>> = [[]]
+    private var recycle:Array<Array<(CGFloat,CGFloat)>> = [[]]
+    private var isInit = false
+    private var context:CGContext?
+    private func initState(_ rect:CGRect){
+       isInit = true
+        viewW = rect.size.width
+        viewH = rect.size.height
+        context = UIGraphicsGetCurrentContext()  //因為物件是相同的所以可以放在先行宣告裡
+    }
     
     //呈現外觀
     override func draw(_ rect: CGRect) {
-       viewW = rect.size.width
-       viewH = rect.size.height
+       
         
-        let context:CGContext? = UIGraphicsGetCurrentContext()
+        if !isInit {initState(rect)}
+     
+        
+
         
         context?.setLineWidth(2)
         context?.setStrokeColor(red: 0, green: 0, blue: 1, alpha: 1)
         
-        if line.count <= 1 {return}
-        for i in 1..<line.count{
-            let (p0x,p0y) = line[i-1]
-            let (p1x,p1y) = line [i]
-            context?.move(to: CGPoint(x: p0x,y: p0y))
-            context?.addLine(to: CGPoint(x:p1x,y:p1y))
-            context?.drawPath(using: CGPathDrawingMode.stroke)
-            
-        }
         
+        
+        for j in 0..<lines.count {
+            if lines[j].count <= 1 {continue}
+            for i in 1..<lines[j].count{
+                let (p0x,p0y) = lines[j][i-1]
+                let (p1x,p1y) = lines[j][i]
+                context?.move(to: CGPoint(x: p0x,y: p0y))
+                context?.addLine(to: CGPoint(x:p1x,y:p1y))
+                context?.drawPath(using: CGPathDrawingMode.stroke)
+                
+            }
+        }
         
 //        context?.move(to: CGPoint(x: 0, y: 0))
 //        context?.addLine(to: CGPoint(x: 0, y: 100))
@@ -50,6 +64,7 @@ class PainterView: UIView {
         let point1:CGPoint = touch1.location(in: self)
         
         lines += [[]]
+        recycle = [[]]
         lines[lines.count-1] += [(point1.x,point1.y)]
         
     }
@@ -62,5 +77,24 @@ class PainterView: UIView {
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
        
+    }
+    func clear(){
+        lines = [[]]
+        recycle = [[]]
+        setNeedsDisplay()
+    }
+    func undo(){
+        if lines.count>0{
+            
+            recycle += [lines.remove(at: lines.count-1)]
+            setNeedsDisplay()
+        }
+    }
+    func redo(){
+        if recycle.count>0{
+            lines += [recycle.remove(at: recycle.count-1)]
+            setNeedsDisplay()
+        }
+
     }
 }
