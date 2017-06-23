@@ -28,10 +28,6 @@ class PainterView: UIView {
        
         
         if !isInit {initState(rect)}
-     
-        
-
-        
         context?.setLineWidth(2)
         context?.setStrokeColor(red: 0, green: 0, blue: 1, alpha: 1)
         
@@ -48,6 +44,13 @@ class PainterView: UIView {
                 
             }
         }
+        var img = UIImage(named: "1066.jpg")
+        var imgW = img?.size.width
+        var imgH = img?.size.height
+        var temp = UIImageView(image: img)
+        temp.frame = CGRect(x: 0, y: 0, width: imgW!, height: imgH!)
+        addSubview(temp)
+        
         
 //        context?.move(to: CGPoint(x: 0, y: 0))
 //        context?.addLine(to: CGPoint(x: 0, y: 100))
@@ -58,6 +61,8 @@ class PainterView: UIView {
         
         
     }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch1:UITouch = touches.first!
