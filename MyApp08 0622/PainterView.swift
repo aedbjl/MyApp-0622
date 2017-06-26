@@ -33,6 +33,32 @@ class PainterView: UIView {
         
         
         
+        
+        
+        
+        var img = UIImage(named: "1066.jpg")
+        var imgW = img?.size.width
+        var imgH = img?.size.height
+//        var temp = UIImageView(image: img)
+//        temp.frame = CGRect(x: 0, y: 0, width: imgW!, height: imgH!)
+//        addSubview(temp) //不同的層
+        
+//        let imgCG = img?.cgImage //上下顛倒
+//        context?.draw(imgCG!, in: CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
+        
+//        context?.move(to: CGPoint(x: 0, y: 0))
+//        context?.addLine(to: CGPoint(x: 0, y: 100))
+//        context?.addLine(to: CGPoint(x: 100, y: 100))
+//        context?.addLine(to: CGPoint(x: 100, y: 0))
+//        context?.addLine(to: CGPoint(x: 0, y: 0))
+//        context?.drawPath(using: CGPathDrawingMode.stroke)
+        
+        img?.draw(in: CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
+        
+        
+        
         for j in 0..<lines.count {
             if lines[j].count <= 1 {continue}
             for i in 1..<lines[j].count{
@@ -44,21 +70,6 @@ class PainterView: UIView {
                 
             }
         }
-        var img = UIImage(named: "1066.jpg")
-        var imgW = img?.size.width
-        var imgH = img?.size.height
-        var temp = UIImageView(image: img)
-        temp.frame = CGRect(x: 0, y: 0, width: imgW!, height: imgH!)
-        addSubview(temp)
-        
-        
-//        context?.move(to: CGPoint(x: 0, y: 0))
-//        context?.addLine(to: CGPoint(x: 0, y: 100))
-//        context?.addLine(to: CGPoint(x: 100, y: 100))
-//        context?.addLine(to: CGPoint(x: 100, y: 0))
-//        context?.addLine(to: CGPoint(x: 0, y: 0))
-//        context?.drawPath(using: CGPathDrawingMode.stroke)
-        
         
     }
     

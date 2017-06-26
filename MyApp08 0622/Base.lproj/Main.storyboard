@@ -150,6 +150,43 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="307.1964017991005"/>
         </scene>
+        <!--Test TouchVC-->
+        <scene sceneID="aoc-L5-99Q">
+            <objects>
+                <viewController storyboardIdentifier="touchVC" id="Rqz-9Q-S0k" customClass="testTouchVC" customModule="MyApp08_0622" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wKR-Vd-v2L"/>
+                        <viewControllerLayoutGuide type="bottom" id="vGb-BY-B5w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WTq-JI-E0i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlg-fS-w8S">
+                                <rect key="frame" x="61" y="81" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="1oQ-fo-PJZ" kind="unwind" unwindAction="backHereWithSegue:" id="loq-UQ-r9e"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vOi-rT-KHM" customClass="testTouchView" customModule="MyApp08_0622" customModuleProvider="target">
+                                <rect key="frame" x="49" y="166" width="284" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="myView" destination="vOi-rT-KHM" id="emA-mB-KtB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bn-YN-0c5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1oQ-fo-PJZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="356" y="1046.6266866566718"/>
+        </scene>
         <!--PainterVC-->
         <scene sceneID="JK9-k5-E3b">
             <objects>

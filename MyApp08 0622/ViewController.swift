@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private let myData = ["猜數字v1","猜數字v2","切換場景","自訂UIView",
-                          "簽名板","自訂","k","l","p","r","q",
+                          "簽名板","自訂","touch事件","l","p","r","q",
                           "i","j","k","l","p","r","q",
                           "i","j","k","l","p","r","q"]
     
@@ -57,6 +57,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case 5 :
             if let vc = storyboard?.instantiateViewController(withIdentifier: "customcellvc"){
             show(vc, sender : self)
+            }
+            break
+        case 6 :
+            if let vc3 = storyboard?.instantiateViewController(withIdentifier: "touchVC"){
+                show(vc3, sender : self)
             }
             break
         default:

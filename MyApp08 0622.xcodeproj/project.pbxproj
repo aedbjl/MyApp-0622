@@ -20,6 +20,8 @@
 		4ACD06611EFCAF860069D9C7 /* VC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD06601EFCAF860069D9C7 /* VC4.swift */; };
 		4ACD06631EFCC44A0069D9C7 /* PainterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD06621EFCC44A0069D9C7 /* PainterView.swift */; };
 		4ACD06651EFCF9050069D9C7 /* PainterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD06641EFCF9050069D9C7 /* PainterVC.swift */; };
+		4AF0223E1F009CB500D6DC3F /* testTouchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0223D1F009CB500D6DC3F /* testTouchVC.swift */; };
+		4AF022401F009DA800D6DC3F /* testTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0223F1F009DA800D6DC3F /* testTouchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		4ACD06601EFCAF860069D9C7 /* VC4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC4.swift; sourceTree = "<group>"; };
 		4ACD06621EFCC44A0069D9C7 /* PainterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainterView.swift; sourceTree = "<group>"; };
 		4ACD06641EFCF9050069D9C7 /* PainterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainterVC.swift; sourceTree = "<group>"; };
+		4AF0223D1F009CB500D6DC3F /* testTouchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTouchVC.swift; sourceTree = "<group>"; };
+		4AF0223F1F009DA800D6DC3F /* testTouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTouchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				4ACD06601EFCAF860069D9C7 /* VC4.swift */,
 				4ACD06621EFCC44A0069D9C7 /* PainterView.swift */,
 				4ACD06641EFCF9050069D9C7 /* PainterVC.swift */,
+				4AF0223D1F009CB500D6DC3F /* testTouchVC.swift */,
+				4AF0223F1F009DA800D6DC3F /* testTouchView.swift */,
 			);
 			path = "MyApp08 0622";
 			sourceTree = "<group>";
@@ -177,8 +183,10 @@
 				4ACD06611EFCAF860069D9C7 /* VC4.swift in Sources */,
 				4A3649E61EFB712E005F791A /* CustomCellViewController.swift in Sources */,
 				4ACD065D1EFCAF6D0069D9C7 /* VC2.swift in Sources */,
+				4AF022401F009DA800D6DC3F /* testTouchView.swift in Sources */,
 				4A3649E81EFB75C1005F791A /* CustomTableViewCell.swift in Sources */,
 				4A3649D41EFB5F6B005F791A /* AppDelegate.swift in Sources */,
+				4AF0223E1F009CB500D6DC3F /* testTouchVC.swift in Sources */,
 				4ACD06651EFCF9050069D9C7 /* PainterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
