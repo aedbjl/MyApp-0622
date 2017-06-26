@@ -10,17 +10,66 @@ import UIKit
 
 class PainterView: UIView {
 
+    
+    
+    private var img = UIImage(named:"1066.jpg")
+    private var imgH :CGFloat? = 0
+    private var imgW :CGFloat? = 0
     private var viewW:CGFloat = 0
     private var viewH:CGFloat = 0
     private var lines:Array<Array<(CGFloat,CGFloat)>> = [[]]
     private var recycle:Array<Array<(CGFloat,CGFloat)>> = [[]]
     private var isInit = false
     private var context:CGContext?
+    private var dX:CGFloat = 2
+    private var dY:CGFloat = 2
+    private var i = 0
+    private var ballImg = UIImage(named:"iii.png")
+    private var ballW:CGFloat?
+    private var ballH:CGFloat?
+    private var ballX:CGFloat = 1
+    private var ballY:CGFloat = 1
     private func initState(_ rect:CGRect){
        isInit = true
         viewW = rect.size.width
         viewH = rect.size.height
         context = UIGraphicsGetCurrentContext()  //因為物件是相同的所以可以放在先行宣告裡
+        ballW = ballImg?.size.width
+        ballH = ballImg?.size.height
+       
+        
+//        var img = UIImage(named: "1066.jpg")
+        imgW = img?.size.width
+        imgH = img?.size.height
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: {(timer) in
+            self.refreshView()
+        })
+        
+        
+    }
+    
+    func refreshView(){
+        i += 1
+        if i % 2 == 0{
+            moveball()
+        }
+        setNeedsDisplay()
+    }
+    
+    func moveball () {
+        if ballX < 0 || ballX + ballW! > viewW {
+            dX *= -2
+        }
+        if ballY < 0 || ballY + ballH! > viewH {
+            dY *= -2
+        }
+        ballX += dX
+        ballY += dY
+        
+        
+        setNeedsDisplay()
     }
     
     //呈現外觀
@@ -30,15 +79,15 @@ class PainterView: UIView {
         if !isInit {initState(rect)}
         context?.setLineWidth(2)
         context?.setStrokeColor(red: 0, green: 0, blue: 1, alpha: 1)
+        img?.draw(in: CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
+        ballImg?.draw(in:CGRect(x: ballX,  y: ballY, width: ballW!, height: ballH!))
         
         
         
         
         
         
-        var img = UIImage(named: "1066.jpg")
-        var imgW = img?.size.width
-        var imgH = img?.size.height
 //        var temp = UIImageView(image: img)
 //        temp.frame = CGRect(x: 0, y: 0, width: imgW!, height: imgH!)
 //        addSubview(temp) //不同的層
@@ -54,7 +103,7 @@ class PainterView: UIView {
 //        context?.addLine(to: CGPoint(x: 0, y: 0))
 //        context?.drawPath(using: CGPathDrawingMode.stroke)
         
-        img?.draw(in: CGRect(x: 0, y: 0, width: imgW!, height: imgH!))
+        
         
         
         
