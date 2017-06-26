@@ -29,7 +29,20 @@ class testTouchVC: UIViewController {
         
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationTest(_:)))
         myView.addGestureRecognizer(rotationGesture)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeTest(_:)))
+        swipeGesture.direction = UISwipeGestureRecognizerDirection.left
+        swipeGesture.numberOfTouchesRequired = 1
+        myView.addGestureRecognizer(swipeGesture)
+        // longpress , pan , edgepan(excercise)
+        
+//        let longpressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longpressTest(_:)))
+//        longpressGesture.minimumPressDuration = 1
+//        longpressGesture.numberOfTouchesRequired = 1
+//        myView.addGestureRecognizer(longpressGesture)
 
+        
+        
         
     }
     
@@ -61,12 +74,32 @@ class testTouchVC: UIViewController {
         }
 
     }
+    @objc func swipeTest(_ sender:UISwipeGestureRecognizer){
+        switch sender.direction {
+        case UISwipeGestureRecognizerDirection.right :
+            print("right")
+        case UISwipeGestureRecognizerDirection.left :
+            print("left")
+        case UISwipeGestureRecognizerDirection.up:
+            print("up")
+        case UISwipeGestureRecognizerDirection.down :
+            print("down")
+        default:
+            break
+    }
+        
+   
 
     
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        print("VC:touch")
     }
+    
+    
+//    @objc func longpressTest(_ sender:UILongPressGestureRecognizer){
+//        sender.allowableMovement = 4
+//    }
 
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
@@ -75,4 +108,4 @@ class testTouchVC: UIViewController {
 
 
     
-//}
+}
